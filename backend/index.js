@@ -34,35 +34,3 @@ app.listen(PORT, () => {
   console.log("Server is running on port: ", PORT);
 });
 
-
-
-
-  // 1. git init - Initialize the repository (if not already done)
-  // 2. git add . - Stage all your files
-  // 3. git commit -m "blablabla" - Commit the staged files
-  // 4. git remote add origin https://github.com/Andhar7/Spotify_Nodejs.git - Link to your remote repository
-  // 5. git branch -M main - Ensure you're on the main branch
-  // 6. git push -u origin main - Push your code to GitHub
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
