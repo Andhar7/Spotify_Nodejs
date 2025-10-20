@@ -66,3 +66,6 @@ coverage/
 # Temporary files
 tmp/
 temp/
+
+# Uploaded files (local storage)
+/backend/uploads/

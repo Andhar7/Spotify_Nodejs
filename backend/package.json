@@ -5,19 +5,31 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "seed:songs": "node seeds/songs.js",
+    "seed:albums": "node seeds/albums.js",
+    "test": "cd tests && ./run-all-tests.sh",
+    "test:auth": "cd tests && ./run-all-tests.sh auth",
+    "test:songs": "cd tests && ./run-all-tests.sh songs",
+    "test:albums": "cd tests && ./run-all-tests.sh albums",
+    "test:admin": "cd tests && ./run-all-tests.sh admin",
+    "test:users": "cd tests && ./run-all-tests.sh users"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-fileupload": "^1.5.1",
     "jsonwebtoken": "^9.0.2",
     "mailtrap": "^4.3.0",
+    "node-cron": "^3.0.3",
     "nodemailer": "^6.10.1",
     "pg": "^8.16.3",
-    "pg-hstore": "^2.3.4"
+    "pg-hstore": "^2.3.4",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

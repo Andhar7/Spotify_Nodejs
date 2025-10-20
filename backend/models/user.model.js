@@ -122,11 +122,30 @@ export const User = {
   // Get user without password
   findByIdWithoutPassword: async (id) => {
     const sql = `
-			SELECT id, email, name, last_login, is_verified, created_at, updated_at
+			SELECT id, email, name, last_login, is_verified, is_admin, created_at, updated_at
 			FROM users
 			WHERE id = $1
 		`;
     const result = await query(sql, [id]);
     return result.rows[0] || null;
+  },
+
+  // Get all users except the current user (for messaging)
+  findAllExceptUser: async (currentUserId) => {
+    const sql = `
+			SELECT id, email, name, last_login, is_verified, is_admin, created_at, updated_at
+			FROM users
+			WHERE id != $1
+			ORDER BY name ASC
+		`;
+    const result = await query(sql, [currentUserId]);
+    return result.rows;
+  },
+
+  // Count all users
+  count: async () => {
+    const sql = `SELECT COUNT(*) as count FROM users`;
+    const result = await query(sql);
+    return parseInt(result.rows[0].count);
   },
 };

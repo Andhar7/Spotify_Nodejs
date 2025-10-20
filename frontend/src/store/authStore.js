@@ -15,6 +15,7 @@ export const useAuthStore = create((set) => ({
   isLoading: false,
   isCheckingAuth: true,
   message: null,
+  isAdmin: false,
 
   signup: async (email, password, name) => {
     set({ isLoading: true, error: null });
@@ -142,6 +143,16 @@ export const useAuthStore = create((set) => ({
         error: error.response.data.message || "Error resetting password",
       });
       throw error;
+    }
+  },
+  checkAdminStatus: async () => {
+    try {
+      const response = await axios.get("http://localhost:5001/api/admin/check", {
+        withCredentials: true,
+      });
+      set({ isAdmin: response.data.admin });
+    } catch (error) {
+      set({ isAdmin: false });
     }
   },
 }));
